@@ -33,9 +33,7 @@ function HorizentalNavData({ pages, isMatch, isMatch2 }) {
   return (
     <>
       <Grid container sx={{ placeItems: "center" }}>
-        {isMatch ? (
-          <Logo justifyContent="center" xs={12} />
-        ) : (
+        {!isMatch && (
           <>
             <Logo justifyContent="start" xs={2} />
             <Grid item xs={session ? 5 : 5} sx={{ margin: "auto" }}>
@@ -109,37 +107,27 @@ function HorizentalNavData({ pages, isMatch, isMatch2 }) {
 
 export default HorizentalNavData;
 
-const Logo = ({ justifyContent, xs }) => (
-  <Grid
-    item
-    xs={xs}
-    sx={{
-      display: "flex",
-      justifyContent: { justifyContent },
-      alignItems: "center",
-    }}
-  >
-    <Link href={"/recipe"}>
-      <IconButton
-        size={"large"}
-        edge={"start"}
-        aria-label={"logo"}
-        color={"inherit"}
-      >
-        'logo'
-      </IconButton>
-    </Link>
-    {/* {isMatch2 && (
-<Link href={"/recipe"}>
-  <Typography
-    color={"snow"}
-    variant={"h6"}
-    component={"div"}
-    sx={{ cursor: "pointer" }}
-  >
-    Hiii
-  </Typography>
-</Link>
-)} */}
-  </Grid>
-);
+export function Logo({ justifyContent, xs }) {
+  return (
+    <Grid
+      item
+      xs={xs}
+      sx={{
+        display: "flex",
+        justifyContent: { justifyContent },
+        alignItems: "center",
+      }}
+    >
+      <Link href={"/recipe"}>
+        <IconButton
+          size={"large"}
+          edge={"start"}
+          aria-label={"logo"}
+          color={"inherit"}
+        >
+          'logo'
+        </IconButton>
+      </Link>
+    </Grid>
+  );
+}

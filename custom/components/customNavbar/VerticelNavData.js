@@ -11,8 +11,9 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Logo } from "./HorizentalNavData";
 
-function VerticelNavData({ pages, isMatch }) {
+function VerticelNavData({ pages, isMatch, isMatch2 }) {
   //here//
   const session = true;
   //////
@@ -79,12 +80,18 @@ function VerticelNavData({ pages, isMatch }) {
         )}
       </Drawer>
       {isMatch && (
-        <IconButton
-          onClick={() => setOpen(!open)}
-          sx={{ marginLeft: "auto", color: "snow" }}
-        >
-          <MenuIcon />
-        </IconButton>
+        <>
+          <Grid container sx={{ placeItems: "center" }}>
+            <IconButton
+              onClick={() => setOpen(!open)}
+              sx={{ marginRight: "auto", color: "snow" }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <Logo justifyContent="center" xs={10} />
+          </Grid>
+        </>
       )}
     </>
   );

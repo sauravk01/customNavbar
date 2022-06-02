@@ -6,7 +6,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <CssBaseline />
+
       <Nav />
+
       <Component {...pageProps} />
     </>
   );

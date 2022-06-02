@@ -20,8 +20,9 @@ const pages = [
 function Nav(props) {
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down(1000));
-  const isMatch2 = useMediaQuery(theme.breakpoints.up("sm"));
-
+  const isMatch2 = useMediaQuery(theme.breakpoints.up(1000));
+  // console.log("match", isMatch);
+  // console.log("match2", isMatch2);
   function ElevationScroll(props) {
     const { children } = props;
     const trigger = useScrollTrigger({
@@ -45,12 +46,20 @@ function Nav(props) {
         <AppBar>
           <Container maxWidth="xl">
             <Toolbar>
-              <VerticelNavData pages={pages} isMatch={isMatch} />
-              <HorizentalNavData
-                pages={pages}
-                isMatch={isMatch}
-                isMatch2={isMatch2}
-              />
+              {isMatch && (
+                <VerticelNavData
+                  pages={pages}
+                  isMatch={isMatch}
+                  isMatch2={isMatch2}
+                />
+              )}
+              {isMatch2 && (
+                <HorizentalNavData
+                  pages={pages}
+                  isMatch={isMatch}
+                  isMatch2={isMatch2}
+                />
+              )}
             </Toolbar>
           </Container>
         </AppBar>
